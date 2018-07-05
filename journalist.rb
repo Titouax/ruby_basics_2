@@ -6,9 +6,14 @@ my_arr = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzeau","@g
 #Cela évite de modifier le tableau initial
 @data_set = my_arr
 
+#EXO 1 : Combien y a t'il de journalistes dans cet array ?
+#===============
 #la methode .length permet de compter le nombre d'élément du tableau (sa longueur)
-puts "Ce tableau contient #{@data_set.length} élements "
+puts "1. Ce tableau contient #{@data_set.length} élements "
+#===============
 
+#EXO 2 : Combien d'handle contiennent un numéro ?
+#===============
 #Définition d'une méthode qui comptera le nombre d'élement possédant un chiffre
 def countNum
   #Initialisation d'un compteur incrémental
@@ -22,11 +27,14 @@ counter = 0
   end
     }
 #On affiche le résultat du compteur
-    puts "Ce tableau contient #{counter} éléments avec un chiffre dedans"
+    puts "2. Ce tableau contient #{counter} éléments avec un chiffre dedans"
 end
 #On lance la méthode countNum
 countNum
+#===============
 
+#EXO 3 : Combien d'handle contiennent les 4 lettres du prénom "Aude" à la suite (sans faire attention à la casse) ?
+#===============
 #On définit la méthode countAude
 def countAude
 #On initialise un compteur
@@ -42,11 +50,14 @@ if x.include?('aude')
 end
 }
 #on affiche le résultat du compteur
-puts "Ce tableau contient #{counter} éléments contenant la string 'aude' "
+puts "3. Ce tableau contient #{counter} éléments contenant la string 'aude' "
 end
 #On lance la méthode définit plus haut
 countAude
+#===============
 
+#EXO 4 : Combien commencent par une majuscule ?
+#===============
 #On définit une méthode qui vérifie si le caractère est compris entre a et z
 def is_lower?(c)
 #On s'appuie sur les code ASCII des caractères du clavier qui sont ordonné par ordre alphabétique
@@ -70,7 +81,43 @@ counter1 = 0
      end
  }
 #On affiche le resultat du compteur
-puts "Ce tableau contient #{counter1} élements commencant par une majuscule"
+puts "4. Ce tableau contient #{counter1} élements commencant par une majuscule"
 end
 #On lance la méthode définis plus haut
 countMaj1
+#===============
+
+#EXO 5 : Combien contiennent une majuscule ?
+#===============
+def countMaj
+counter2 = 0
+  @data_set.map {|x|
+  #.scan permet de vérifier chaque éléments, il vérifier les occurence des caractères [0123456789] et compte leurs nombre avec .length
+    if  x.scan(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/).length > 0
+  #On incrémente le compteur à la condition que la longueur précédente soit suppérieur à 0
+      counter2 += 1
+    end
+      }
+  #On affiche le résultat du compteur
+      puts "5. Ce tableau contient #{counter2} éléments avec une Majuscule dedans"
+  end
+countMaj
+#===============
+
+#EXO 6 : Combien de _ dans tous les pseudos confondus ?
+#===============
+def count_
+  counter3 = 0
+  @data_set.map { |x|
+    if x.scan(/[_]/).length > 0
+      counter3 += 1
+    end
+  }
+puts "6. Ce tableau contient #{counter3} éléments avec un '_'"
+end
+
+count_
+#===============
+
+#EXO 7 : Trie la liste de handle par ordre alphabétique
+#===============
