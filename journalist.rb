@@ -121,3 +121,9 @@ count_
 
 #EXO 7 : Trie la liste de handle par ordre alphabétique
 #===============
+
+def sortAa
+  arrSort = @data_set.sort_by {|x| x.downcase }
+puts "7. voici le tableau rangé par ordre alphabetique : \n #{arrSort}"
+end
+sortAa
