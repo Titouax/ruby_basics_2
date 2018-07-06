@@ -95,3 +95,17 @@ puts "4. Voici la liste de cryptomonnaie dont le cour est inférieur à 6000 :"
 end
 
 under6000
+
+
+#EXO 5
+#===============
+
+top =Array.new
+@my_hash.each do |key, value|
+  if value != nil
+      if value.to_f <6000
+        top.push(value.to_f)
+      end
+    end
+end
+puts @my_hash.key(top.max.to_s)
